@@ -1,13 +1,19 @@
-1.upto(100) do |i|
-  if i % 5 == 0 && i % 3 == 0
-    puts "FizzBuzz"
-  elsif i % 5 == 0
-    puts "Buzz"
-  elsif i % 3 == 0
-    puts "Fizz"
-  else
-    puts i
+def fizzbuzz(first,last)
+  (first..last).each do |number|
+    print "Fizz" if number.divisible_by?(3)
+    print "Buzz" if number.divisible_by?(5)
+    if !(number.divisible_by?(3) || number.divisible_by?(5))
+      print number
+    end
+    puts
   end
 end
 
-#hello
+class Integer
+  def divisible_by?(x)
+    self % x == 0 ? true : false
+  end
+end
+
+#example
+fizzbuzz(1,100)
